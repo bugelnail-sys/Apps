@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<smartplaylist type="movies"><name>Noch nicht gesehen</name><match>all</match><rule field="playcount" operator="is"><value>0</value></rule><limit>20</limit><order direction="descending">dateadded</order></smartplaylist>

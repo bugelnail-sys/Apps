@@ -1,0 +1,42 @@
+--- a/1080i/Startup.xml
++++ b/1080i/Startup.xml
+@@ -1,12 +1,11 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<!-- Foundation -->
++<?xml version='1.0' encoding='utf-8'?>
+ <window>
+     <onload>SetProperty(SkinInitStarted,1,home)</onload>
+-    <onload condition="!Skin.HasSetting(TMDbHelper.Service)">Skin.ToggleSetting(TMDbHelper.Service)</onload>
+-    <onload condition="!Skin.HasSetting(SkinHelper.EnableAnimatedPosters)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
+-    <onload condition="!Skin.HasSetting(Skin_EnableAnimatedPosters)">Skin.SetBool(Skin_EnableAnimatedPosters)</onload>
+-    <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
+-    <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
++    <onload condition="!Skin.HasSetting(TMDbHelper.Service) + !Skin.HasSetting(momentum.performance)">Skin.ToggleSetting(TMDbHelper.Service)</onload>
++    <onload condition="!Skin.HasSetting(SkinHelper.EnableAnimatedPosters) + !Skin.HasSetting(momentum.performance)">Skin.SetBool(SkinHelper.EnableAnimatedPosters)</onload>
++    <onload condition="!Skin.HasSetting(Skin_EnableAnimatedPosters) + !Skin.HasSetting(momentum.performance)">Skin.SetBool(Skin_EnableAnimatedPosters)</onload>
++    <onload condition="!Skin.HasSetting(SkinHelper.EnablePVRThumbs) + !Skin.HasSetting(momentum.performance)">Skin.SetBool(SkinHelper.EnablePVRThumbs)</onload>
++    <onload condition="!Skin.HasSetting(SkinHelper.EnableMusicArt) + !Skin.HasSetting(momentum.performance)">Skin.SetBool(SkinHelper.EnableMusicArt)</onload>
+     <onload condition="!Skin.String(colorbox_effect)">Skin.SetString(colorbox_effect,blur)</onload>
+     <onload condition="!Skin.String(colorbox_quality)">Skin.SetString(colorbox_quality,4)</onload>
+     <onload condition="!Skin.String(colorbox_blursize)">Skin.SetString(colorbox_blursize,30)</onload>
+@@ -22,7 +21,7 @@
+     <onload condition="System.AddonIsEnabled(script.skin.info.service)">RunScript(script.skin.info.service)</onload>
+     <onload>Skin.Reset(TMDbHelper.MonitorContainer)</onload>
+ 
+-    <!-- First start settings -->
++    
+     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(global.hidecirles)</onload>
+     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(home.modernwidgets)</onload>
+     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(home.vertical.widgets)</onload>
+@@ -49,9 +48,9 @@
+     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(disable.only.hide.menu.items)</onload>
+     <onload condition="!Skin.HasSetting(startup.init)">Skin.SetBool(startup.init)</onload>
+     
+-    <!-- Go home -->
++    
+     <onload condition="!Skin.HasSetting(disable.startup.window)">ReplaceWindow(1150)</onload>
+     <onload condition="Skin.HasSetting(disable.startup.window)">ReplaceWindow($INFO[System.StartupWindow])</onload>    
+     
+-    <controls/>
++    <controls />
+ </window>

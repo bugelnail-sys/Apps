@@ -1,0 +1,23 @@
+{
+  "1": {
+    "title": "Beispielfilm",
+    "versions": [
+      {
+        "fileid": 10,
+        "path": "file:///demo/default.mkv",
+        "label": "Standardfassung",
+        "tags": [],
+        "mpaa": "FSK 6",
+        "genre": ["Familie"]
+      },
+      {
+        "fileid": 11,
+        "path": "file:///demo/alternate.mkv",
+        "label": "Alternative Fassung",
+        "tags": [],
+        "mpaa": "FSK 12",
+        "genre": ["Abenteuer"]
+      }
+    ]
+  }
+}

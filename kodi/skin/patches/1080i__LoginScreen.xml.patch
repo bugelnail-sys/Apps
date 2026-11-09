@@ -1,0 +1,210 @@
+--- a/1080i/LoginScreen.xml
++++ b/1080i/LoginScreen.xml
+@@ -1,117 +1,97 @@
++<?xml version='1.0' encoding='utf-8'?>
+ <window>
+     <defaultcontrol always="true">52</defaultcontrol>
+     <onload>SetProperty(SkinInitStarted,1,home)</onload>
+     <controls>
+-        <control type="group">
+-            <visible>!Player.HasVideo</visible>
+-            <visible>!String.IsEmpty(Window(home).Property(SkinInitStarted))</visible>
+-            <include>GlobalBackground</include>
+-            <control type="button" id="20">
+-                <centerleft>50%</centerleft>
+-                <bottom>260</bottom>
+-                <description>Close</description>
+-                <label>10111</label>
+-                <width>320</width>
+-                <include>DefInfoButtons</include>
+-                <onclick>ActivateWindow(ShutdownMenu)</onclick>
+-                <onleft>52</onleft>
+-                <onright>52</onright>
+-                <onup>52</onup>
+-                <ondown>52</ondown>
+-            </control>
+-            <control type="list" id="52">
+-                <visible>!Window.IsVisible(ProfileSettings.xml)</visible>
+-                <posx>635</posx>
+-                <posy>360</posy>
+-                <width>650</width>
+-                <height>360</height>
+-                <onleft>20</onleft>
+-                <onright>20</onright>
+-                <onup>20</onup>
+-                <ondown>20</ondown>
+-                <scrolltime tween="cubic" easing="out">500</scrolltime>
+-                <movement>1</movement>
+-                <itemlayout height="120">
+-                    <control type="label">
+-                        <posx>140</posx>
+-                        <posy>20</posy>
+-                        <width>490</width>
+-                        <height>40</height>
+-                        <textcolor>Dark3</textcolor>
+-                        <font>Small</font>
+-                        <label>$INFO[ListItem.Label]</label>
+-                    </control>
+-                    <control type="label">
+-                        <posx>140</posx>
+-                        <posy>59</posy>
+-                        <width>490</width>
+-                        <height>40</height>
+-                        <textcolor>Dark3</textcolor>
+-                        <label>$INFO[ListItem.Label2]</label>
+-                        <font>Tiny</font>
+-                    </control>
+-                </itemlayout>
+-                <focusedlayout height="120">
+-                    <control type="image">
+-                        <visible>String.StartsWith(ListItem.Icon,Default)</visible>
+-                        <left>13</left>
+-                        <centertop>50%</centertop>
+-                        <width>100</width>
+-                        <height>100</height>
+-                        <aspectratio scalediffuse="false">scale</aspectratio>
+-                        <texture colordiffuse="Dark1" diffuse="other_textures/circle_full.png" fallback="DefaultActor.png">$INFO[Listitem.Icon]</texture>
+-                        <animation effect="slide" start="0,120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnPrevious">Focus</animation>
+-                        <animation effect="slide" start="0,-120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnNext">Focus</animation>
+-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
+-                    </control>
+-                    <control type="image">
+-                        <visible>!String.StartsWith(ListItem.Icon,Default)</visible>
+-                        <left>13</left>
+-                        <centertop>50%</centertop>
+-                        <width>100</width>
+-                        <height>100</height>
+-                        <aspectratio scalediffuse="false">scale</aspectratio>
+-                        <texture diffuse="other_textures/circle_full.png" fallback="DefaultActor.png">$INFO[Listitem.Icon]</texture>
+-                        <animation effect="slide" start="0,120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnPrevious">Focus</animation>
+-                        <animation effect="slide" start="0,-120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnNext">Focus</animation>
+-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
+-                    </control>
+-                    <control type="image">
+-                        <left>13</left>
+-                        <centertop>50%</centertop>
+-                        <width>100</width>
+-                        <height>100</height>
+-                        <texture colordiffuse="Dark1">other_textures/circle.png</texture>
+-                        <animation effect="slide" start="0,120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnPrevious">Focus</animation>
+-                        <animation effect="slide" start="0,-120" end="0,0" time="300" reversible="false" tween="back" easing="out" condition="Container(52).OnNext">Focus</animation>
+-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
+-                    </control>
+-                    <control type="group">
+-                        <animation type="Focus" condition="Container(52).OnNext | Container(52).OnPrevious" reversible="false">
+-                            <effect type="fade" start="50" end="100" time="300" tween="sine" easing="inout"/>
+-                        </animation>
+-                        <animation effect="fade" start="100" end="50" time="300" tween="sine" easing="inout" condition="!Control.HasFocus(52)">Conditional</animation>
+-                        <control type="label">
+-                            <posx>140</posx>
+-                            <posy>20</posy>
+-                            <width>490</width>
+-                            <height>40</height>
+-                            <font>Small</font>
+-                            <textcolor>Dark1</textcolor>
+-                            <label>$INFO[ListItem.Label]</label>
+-                        </control>
+-                        <control type="label">
+-                            <posx>140</posx>
+-                            <posy>59</posy>
+-                            <width>490</width>
+-                            <height>40</height>
+-                            <textcolor>Dark2</textcolor>
+-                            <label>$INFO[ListItem.Label2]</label>
+-                            <font>Tiny</font>
+-                        </control>
+-                    </control>
+-                </focusedlayout>
+-            </control>
++        <control type="image">
++            <left>0</left><top>0</top><width>1920</width><height>1080</height>
++            <texture>special://masterprofile/family/background.png</texture>
++        </control>
++        <control type="label">
++            <left>160</left><top>110</top><width>1600</width><height>90</height>
++            <font>Large</font><align>center</align><textcolor>FFFFFFFF</textcolor>
++            <label>Wer schaut gerade?</label>
++        </control>
++        <control type="label">
++            <left>160</left><top>205</top><width>1600</width><height>45</height>
++            <font>Small</font><align>center</align><textcolor>FFB7B9C0</textcolor>
++            <label>Eure Filme, Serien und Lieblings-Apps</label>
++        </control>
++        <control type="list" id="52">
++            <visible>!Window.IsVisible(ProfileSettings.xml)</visible>
++            <left>420</left><top>350</top><width>1080</width><height>410</height>
++            <orientation>horizontal</orientation>
++            <onleft>52</onleft><onright>52</onright><onup>52</onup><ondown>20</ondown>
++            <scrolltime>200</scrolltime>
++            <itemlayout width="360" height="410">
++                <control type="image">
++                    <left>60</left><top>16</top><width>240</width><height>240</height>
++                    <texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
++                    <aspectratio>keep</aspectratio>
++                    <colordiffuse>CCFFFFFF</colordiffuse>
++                </control>
++                <control type="label">
++                    <left>10</left><top>285</top><width>340</width><height>55</height>
++                    <font>Medium</font><align>center</align><textcolor>FFB7B9C0</textcolor>
++                    <label>$INFO[ListItem.Label]</label>
++                </control>
++                <control type="label">
++                    <left>0</left><top>348</top><width>360</width><height>40</height>
++                    <font>Tiny</font><align>center</align><textcolor>FF989BA3</textcolor>
++                    <label>Alle Titel</label><visible>!String.IsEqual(ListItem.Label,@@MOMENTUM_KIDS@@)</visible>
++                </control>
++                <control type="label">
++                    <left>0</left><top>348</top><width>360</width><height>40</height>
++                    <font>Tiny</font><align>center</align><textcolor>FF989BA3</textcolor>
++                    <label>Bis FSK 12 · ohne Horror</label><visible>String.IsEqual(ListItem.Label,@@MOMENTUM_KIDS@@)</visible>
++                </control>
++            </itemlayout>
++            <focusedlayout width="360" height="410">
++                <control type="image">
++                    <left>60</left><top>16</top><width>240</width><height>240</height>
++                    <texture fallback="DefaultUser.png">$INFO[ListItem.Icon]</texture>
++                    <aspectratio>keep</aspectratio>
++                </control>
++                <control type="image">
++                    <left>52</left><top>8</top><width>256</width><height>256</height>
++                    <texture colordiffuse="ff55a9f3">special://masterprofile/family/focus.png</texture>
++                    <visible>Control.HasFocus(52) + String.IsEqual(ListItem.Label,@@MOMENTUM_ADULT_A@@)</visible>
++                </control>
++                <control type="image">
++                    <left>52</left><top>8</top><width>256</width><height>256</height>
++                    <texture colordiffuse="ffe586b3">special://masterprofile/family/focus.png</texture>
++                    <visible>Control.HasFocus(52) + String.IsEqual(ListItem.Label,@@MOMENTUM_ADULT_B@@)</visible>
++                </control>
++                <control type="image">
++                    <left>52</left><top>8</top><width>256</width><height>256</height>
++                    <texture colordiffuse="ff59d4c4">special://masterprofile/family/focus.png</texture>
++                    <visible>Control.HasFocus(52) + String.IsEqual(ListItem.Label,@@MOMENTUM_KIDS@@)</visible>
++                </control>
++                <control type="label">
++                    <left>10</left><top>285</top><width>340</width><height>55</height>
++                    <font>MediumBold</font><align>center</align><textcolor>FFFFFFFF</textcolor>
++                    <label>$INFO[ListItem.Label]</label>
++                </control>
++                <control type="label">
++                    <left>0</left><top>348</top><width>360</width><height>40</height>
++                    <font>Tiny</font><align>center</align><textcolor>FFB7B9C0</textcolor>
++                    <label>Alle Titel</label><visible>!String.IsEqual(ListItem.Label,@@MOMENTUM_KIDS@@)</visible>
++                </control>
++                <control type="label">
++                    <left>0</left><top>348</top><width>360</width><height>40</height>
++                    <font>Tiny</font><align>center</align><textcolor>FFB7B9C0</textcolor>
++                    <label>Bis FSK 12 · ohne Horror</label><visible>String.IsEqual(ListItem.Label,@@MOMENTUM_KIDS@@)</visible>
++                </control>
++            </focusedlayout>
++        </control>
++        <control type="button" id="20">
++            <left>800</left><top>850</top><width>320</width><height>70</height>
++            <label>Optionen</label><font>Small</font><align>center</align>
++            <textcolor>FFB7B9C0</textcolor><focusedcolor>FFFFFFFF</focusedcolor>
++            <texturefocus colordiffuse="FFE50914">common/box.png</texturefocus>
++            <texturenofocus colordiffuse="FF24262C">common/box.png</texturenofocus>
++            <onclick>ActivateWindow(ShutdownMenu)</onclick>
++            <onleft>52</onleft><onright>52</onright><onup>52</onup><ondown>52</ondown>
+         </control>
+     </controls>
+ </window>

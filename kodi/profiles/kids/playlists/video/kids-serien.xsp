@@ -1,0 +1,2 @@
+<?xml version='1.0' encoding='utf-8'?>
+<smartplaylist type="tvshows"><name>Serien bis 12 · ohne Horror</name><match>all</match><rule field="mpaarating" operator="is"><value>FSK 0</value><value>FSK 6</value><value>FSK 12</value><value>Rated 0</value><value>Rated 6</value><value>Rated 12</value></rule><rule field="genre" operator="doesnotcontain"><value>Horror</value></rule><order direction="ascending">title</order></smartplaylist>

@@ -1,0 +1,74 @@
+--- a/shortcuts/template.xml
++++ b/shortcuts/template.xml
+@@ -34,6 +34,7 @@
+                 <right>70</right>
+                 <height>297</height>
+                 <onup>300</onup>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <ondown>300</ondown>
+                 <onback>300</onback>
+@@ -152,6 +153,7 @@
+                 <width>1</width>
+                 <height>1</height>
+                 <onup>300</onup>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <ondown>300</ondown>
+                 <onback>300</onback>
+@@ -287,6 +289,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]1">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]1).NumItems,0) | Container(301$SKINSHORTCUTS[id]1).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget),mysubmenu) | String.IsEqual(Container(300).ListItem.Property(widget),custom) | String.Contains(Container(300).ListItem.Property(widget),weather)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]1"/>
+@@ -470,6 +473,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]2">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]2).NumItems,0) | Container(301$SKINSHORTCUTS[id]2).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget.2),custom)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]2"/>
+@@ -638,6 +642,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]3">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]3).NumItems,0) | Container(301$SKINSHORTCUTS[id]3).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget.3),custom)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]3"/>
+@@ -806,6 +811,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]4">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]4).NumItems,0) | Container(301$SKINSHORTCUTS[id]4).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget.4),custom)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]4"/>
+@@ -974,6 +980,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]5">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]5).NumItems,0) | Container(301$SKINSHORTCUTS[id]5).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget.5),custom)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]5"/>
+@@ -1142,6 +1149,7 @@
+             <control type="$SKINSHORTCUTS[widgetlisttype]" id="301$SKINSHORTCUTS[id]6">
+                 <skinshortcuts>visibility</skinshortcuts>
+                 <visible>Integer.IsGreater(Container(301$SKINSHORTCUTS[id]6).NumItems,0) | Container(301$SKINSHORTCUTS[id]6).IsUpdating | String.IsEqual(Container(300).ListItem.Property(widget.6),custom)</visible>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <include content="DefMultiWidgetContainer">
+                     <param name="id" value="301$SKINSHORTCUTS[id]6"/>
+@@ -1275,6 +1283,7 @@
+                 <onleft>300</onleft>
+                 <onup>300</onup>
+                 <ondown>300</ondown>
++                <onclick condition="!String.IsEmpty(ListItem.Property(MomentumResumeKey))">RunScript(special://home/addons/plugin.video.momentum.home/default.py,resume,$INFO[ListItem.Property(MomentumResumeKey)])</onclick>
+                 <onclick condition="$SKINSHORTCUTS[IsGTO]">RunPlugin(plugin://script.service.gto?action=info&amp;item=$INFO[ListItem.Property(Item)])</onclick>
+                 <focusposition>0</focusposition>
+                 <preloaditems>2</preloaditems>

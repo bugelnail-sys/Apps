@@ -1,0 +1,129 @@
+--- a/1080i/Includes.xml
++++ b/1080i/Includes.xml
+@@ -1796,7 +1796,21 @@
+                 <selected>ListItem.IsResumable</selected>
+                 <visible>!ListItem.IsPlaying</visible>
+                 <visible>!String.IsEqual(ListItem.DBType,tvshow)</visible>
+-            </control>
++            <visible>!ListItem.HasVideoVersions</visible></control>
++<control type="radiobutton" id="9018">
++                <onfocus>ClearProperty(moviecontent)</onfocus>
++                <onfocus>ClearProperty(ShowDisc)</onfocus>
++                <include>buttondimensions</include>
++                <texturenofocus colordiffuse="Dark4" border="0">common/boxsquare.png</texturenofocus>
++                <texturefocus colordiffuse="$VAR[ColorHighlight]" border="0">common/boxsquare.png</texturefocus>
++                <textureradioonfocus colordiffuse="FFFFFFFF">buttonsdialogs/continue.png</textureradioonfocus>
++                <textureradioonnofocus colordiffuse="FFFFFFFF">buttonsdialogs/continue.png</textureradioonnofocus>
++                <textureradioofffocus colordiffuse="FFFFFFFF">buttonsdialogs/play.png</textureradioofffocus>
++                <textureradiooffnofocus colordiffuse="FFFFFFFF">buttonsdialogs/play.png</textureradiooffnofocus>
++                <selected>ListItem.IsResumable</selected>
++                <visible>!ListItem.IsPlaying</visible>
++                <visible>!String.IsEqual(ListItem.DBType,tvshow)</visible>
++            <visible>ListItem.HasVideoVersions + String.IsEqual(ListItem.DBType,movie)</visible><onclick>RunScript(special://masterprofile/family/choose_version.py)</onclick></control>
+ 
+             <control type="radiobutton" id="9078">
+                 <onfocus>ClearProperty(moviecontent)</onfocus>
+@@ -1855,35 +1869,27 @@
+             
+             <!-- Trailer - ListItem.Trailer | IMDB.Trailer | Bingie.Helper -->
+             <control type="radiobutton" id="1224">
+-                <onfocus>ClearProperty(moviecontent)</onfocus>
+-                <onfocus>ClearProperty(ShowDisc)</onfocus>
+-                <include>buttondimensions</include>
+-                <include content="buttontextures">
+-                    <param name="icon" value="buttonsdialogs/trailer.png"/>
+-                </include>
+-                <visible>!Skin.HasSetting(PlayTrailerWindowed) + [[Skin.HasSetting(Use.IMDB.Trailer) + System.AddonIsEnabled(plugin.video.imdb.trailers) + !String.IsEmpty(ListItem.IMDBNumber)] | [!Skin.HasSetting(Use.IMDB.Trailer) + String.IsEmpty(ListItem.Trailer) + System.AddonIsEnabled(script.bingie.helper)] | [!Skin.HasSetting(Use.IMDB.Trailer) + !String.IsEmpty(ListItem.Trailer)]]</visible>                
+-                <onclick condition="Skin.HasSetting(Use.IMDB.Trailer) | String.IsEmpty(ListItem.Trailer)">Dialog.Close(2003)</onclick>                
+-                <onclick condition="!Skin.HasSetting(Use.IMDB.Trailer) + !String.IsEmpty(ListItem.Trailer)">SendClick(11)</onclick>
+-                <onclick condition="!Skin.HasSetting(Use.IMDB.Trailer) + String.IsEmpty(ListItem.Trailer) + System.AddonIsEnabled(script.bingie.helper)">RunScript(script.bingie.helper,action=playtrailer,MODE=fullscreen,title=$INFO[ListItem.Title],local=true)</onclick>
+-                <onclick condition="Skin.HasSetting(Use.IMDB.Trailer)">PlayMedia(plugin://plugin.video.imdb.trailers/?action=play_id&amp;imdb=$INFO[ListItem.IMDBNumber])</onclick>                
+-                <visible>!Skin.HasSetting(hidebutton.video.trailer)</visible>
+-            </control>
++    <include>buttondimensions</include>
++    <include content="buttontextures">
++        <param name="icon" value="buttonsdialogs/trailer.png" />
++    </include>
++    <onfocus>ClearProperty(videoyoutube)</onfocus>
++    <onfocus>SetProperty(moviecontent,1)</onfocus>
++    <onclick>RunScript(special://masterprofile/family/youtube_app.py,trailer)</onclick>
++    <visible>!Skin.HasSetting(hidebutton.video.trailer) + [String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow) | String.IsEqual(ListItem.DBType,episode)]</visible>
++</control>
+ 
+             <!-- Trailer Windowed - ListItem.Trailer | IMDB.Trailer | Bingie.Helper -->
+             <control type="radiobutton" id="1223">
+-                <onfocus condition="!String.IsEqual(Window.Property(moviecontent),6)">ClearProperty(moviecontent)</onfocus>
+-                <onfocus>ClearProperty(ShowDisc)</onfocus>
+-                <onfocus>SetProperty(moviecontent,6)</onfocus>
+-                <include>buttondimensions</include>
+-                <include content="buttontextures">
+-                    <param name="icon" value="buttonsdialogs/trailer.png"/>
+-                </include>
+-                <visible>Skin.HasSetting(PlayTrailerWindowed) + [[Skin.HasSetting(Use.IMDB.Trailer) + System.AddonIsEnabled(plugin.video.imdb.trailers) + !String.IsEmpty(ListItem.IMDBNumber)] | [!Skin.HasSetting(Use.IMDB.Trailer) + String.IsEmpty(ListItem.Trailer) + System.AddonIsEnabled(script.bingie.helper)] | [!Skin.HasSetting(Use.IMDB.Trailer) + !String.IsEmpty(ListItem.Trailer)]]</visible>
+-                <onclick condition="!Skin.HasSetting(Use.IMDB.Trailer) + !String.IsEmpty(ListItem.Trailer)">PlayMedia($INFO[ListItem.Trailer],1)</onclick>
+-                <onclick condition="!Skin.HasSetting(Use.IMDB.Trailer) + String.IsEmpty(ListItem.Trailer) + System.AddonIsEnabled(script.bingie.helper)">RunScript(script.bingie.helper,action=playtrailer,MODE=windowed,title=$INFO[ListItem.Title],local=true)</onclick>
+-                <onclick condition="Skin.HasSetting(Use.IMDB.Trailer)">PlayMedia(plugin://plugin.video.imdb.trailers/?action=play_id&amp;imdb=$INFO[ListItem.IMDBNumber],1)</onclick>
+-                <visible>!Skin.HasSetting(hidebutton.video.trailer)</visible>
+-            </control>
++    <include>buttondimensions</include>
++    <include content="buttontextures">
++        <param name="icon" value="buttonsdialogs/trailer.png" />
++    </include>
++    <onfocus>ClearProperty(videoyoutube)</onfocus>
++    <onfocus>SetProperty(moviecontent,1)</onfocus>
++    <onclick>RunScript(special://masterprofile/family/youtube_app.py,trailer)</onclick>
++    <visible>false</visible>
++</control>
+ 
+             <!-- Cinema -->
+             <control type="radiobutton" id="49">
+@@ -1990,17 +1996,17 @@
+                 <visible>Skin.HasSetting(showbutton.video.set) + !String.IsEmpty(ListItem.SetId)</visible>
+             </control>
+             <control type="radiobutton" id="9004">
+-                <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)</visible>
+-                <onfocus condition="!String.IsEqual(Window.Property(moviecontent),4)">ClearProperty(moviecontent)</onfocus>
+-                <onfocus>ClearProperty(ShowDisc)</onfocus>
+-                <onfocus>SetProperty(moviecontent,4)</onfocus>
+-                <onfocus>SetProperty(videoyoutube,1)</onfocus>
+-                <include>buttondimensions</include>
+-                <include content="buttontextures">
+-                    <param name="icon" value="buttonsdialogs/youtube.png"/>
+-                </include>
+-                <visible>!Skin.HasSetting(hidebutton.video.youtube)</visible>
+-            </control>
++    <visible>String.IsEqual(ListItem.DBType,movie) | String.IsEqual(ListItem.DBType,tvshow)</visible>
++    <include>buttondimensions</include>
++    <include content="buttontextures">
++        <param name="icon" value="buttonsdialogs/youtube.png" />
++    </include>
++    <visible>!Skin.HasSetting(hidebutton.video.youtube)</visible>
++    <onfocus>ClearProperty(videoyoutube)</onfocus>
++    <onfocus>ClearProperty(ShowDisc)</onfocus>
++    <onfocus>SetProperty(moviecontent,1)</onfocus>
++    <onclick>RunScript(special://masterprofile/family/youtube_app.py,search)</onclick>
++</control>
+             <control type="radiobutton" id="9005">
+                 <onfocus condition="!String.IsEqual(Window.Property(moviecontent),5)">ClearProperty(moviecontent)</onfocus>
+                 <onfocus>ClearProperty(ShowDisc)</onfocus>
+@@ -2076,13 +2082,13 @@
+                 </include>
+             </control>
+             <control type="radiobutton" id="9119">
+-                <onfocus condition="!String.IsEqual(Window.Property(actinfo),5)">ClearProperty(actinfo)</onfocus>
+-                <onfocus>SetProperty(actinfo,5)</onfocus>
+-                <include>buttondimensions</include>
+-                <include content="buttontextures">
+-                    <param name="icon" value="buttonsdialogs/youtube.png"/>
+-                </include>
+-            </control>
++    <include>buttondimensions</include>
++    <include content="buttontextures">
++        <param name="icon" value="buttonsdialogs/youtube.png" />
++    </include>
++    <onfocus>SetProperty(actinfo,1)</onfocus>
++    <onclick>RunScript(special://masterprofile/family/youtube_app.py,person)</onclick>
++</control>
+             <control type="radiobutton" id="9007">
+                 <onfocus>ClearProperty(actinfo)</onfocus>
+                 <include>buttondimensions</include>

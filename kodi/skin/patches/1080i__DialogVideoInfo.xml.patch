@@ -1,0 +1,12 @@
+--- a/1080i/DialogVideoInfo.xml
++++ b/1080i/DialogVideoInfo.xml
+@@ -1,7 +1,8 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <!-- Foundation -->
+ <window id="2003">
+-    <defaultcontrol always="true">8</defaultcontrol>
++    <defaultcontrol always="true">9000</defaultcontrol>
++    <onload condition="ListItem.HasVideoVersions">SetFocus(9018)</onload>
+     <onload condition="Control.IsVisible(9201)">SetFocus(9201)</onload>
+     <onload condition="Control.IsVisible(9078)">SetFocus(9078)</onload>
+     <onload>Control.Move(50,$INFO[Container(50).CurrentItem,-])</onload>

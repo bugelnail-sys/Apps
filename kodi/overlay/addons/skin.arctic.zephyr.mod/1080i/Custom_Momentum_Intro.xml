@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1196">
+    <defaultcontrol always="true">10</defaultcontrol>
+    <controls>
+        <control type="image">
+            <left>0</left><top>0</top><width>1920</width><height>1080</height>
+            <texture colordiffuse="FF0F1012">common/box.png</texture>
+        </control>
+        <control type="videowindow">
+            <left>0</left><top>0</top><width>1920</width><height>1080</height>
+        </control>
+        <control type="button" id="10">
+            <left>800</left><top>975</top><width>320</width><height>55</height>
+            <label>Intro überspringen</label><font>Tiny</font><align>center</align>
+            <textcolor>B3FFFFFF</textcolor><focusedcolor>FFFFFFFF</focusedcolor>
+            <texturefocus colordiffuse="5524262C">common/box.png</texturefocus>
+            <texturenofocus colordiffuse="5524262C">common/box.png</texturenofocus>
+            <onclick>SetProperty(Momentum.Intro.Cancel,1,home)</onclick>
+            <onback>SetProperty(Momentum.Intro.Cancel,1,home)</onback>
+            <onleft>10</onleft><onright>10</onright><onup>10</onup><ondown>10</ondown>
+        </control>
+    </controls>
+</window>
